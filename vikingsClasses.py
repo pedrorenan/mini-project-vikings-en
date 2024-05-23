@@ -19,14 +19,13 @@ class Soldier:
 class Viking(Soldier):
     def __init__(self, name, health, strength):
         self.name = name
-        self.health = health
-        self.strength = strength
+        super().__init__(health, strength)
 
     def battleCry(self):
         return "Odin Owns You All!"
 
     def receiveDamage(self, damage):
-        self.health -= damage
+        super().receiveDamage(damage)
         if self.health > 0:
             return f"{self.name} has received {damage} points of damage"
         else:
@@ -36,11 +35,10 @@ class Viking(Soldier):
 
 class Saxon(Soldier):
     def __init__(self, health, strength):
-        self.health = health
-        self.strength = strength
+        super().__init__(health, strength)
 
     def receiveDamage(self, damage):
-        self.health -= damage
+        super().receiveDamage(damage)
         if self.health > 0:
             return f"A Saxon has received {damage} points of damage"
         else:
